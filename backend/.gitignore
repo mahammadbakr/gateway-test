@@ -28,7 +28,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 .env
-
+env
 
 
 # dotenv environment variables file

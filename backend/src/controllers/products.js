@@ -3,7 +3,7 @@ const ErrorResponse = require("../utils/errorResponse");
 const asyncHandler = require("../middleware/async");
 
 // @desc      create product
-// @route     /api/v1/product/createProduct
+// @route     /api/v1/products/
 // @access    Private
 exports.createProduct = asyncHandler(async (req, res, next) => {
   const product = await Product.create(req.body);
@@ -11,7 +11,7 @@ exports.createProduct = asyncHandler(async (req, res, next) => {
 });
 
 // @desc      Update product
-// @route     /api/v1/product/updateProduct/:productId
+// @route     /api/v1/products/:productId
 // @access    Private
 exports.updateProduct = asyncHandler(async (req, res, next) => {
   const updatedProduct = await Product.findByIdAndUpdate(
@@ -32,7 +32,7 @@ exports.updateProduct = asyncHandler(async (req, res, next) => {
 });
 
 // @desc      Delete Product
-// @route     /api/v1/product/deleteProduct/:productId
+// @route     /api/v1/products/:productId
 // @access    Private
 exports.deleteProduct = asyncHandler(async (req, res, next) => {
   const deletedProduct = await Product.findByIdAndDelete(req.params.productId);
@@ -49,7 +49,7 @@ exports.deleteProduct = asyncHandler(async (req, res, next) => {
 
 
 // @desc      get products
-// @route     /api/v1/product/products
+// @route     /api/v1/products/
 // @access    public
 exports.getProducts = asyncHandler(async (req, res, next) => {
   res.send(res.advancedResults);

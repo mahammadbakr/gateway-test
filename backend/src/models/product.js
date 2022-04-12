@@ -4,9 +4,11 @@ const productSchema = new mongoose.Schema(
   {
     title: {
       type: String,
+      required: [true, "title field is missing. "],
     },
     content: {
       type: String,
+      required: [true, "content field is missing. "],
     },
     status: {
       type: String,
