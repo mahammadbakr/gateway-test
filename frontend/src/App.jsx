@@ -21,6 +21,7 @@ function App() {
       <div className="container pt-5">
         <AddProducts />
         <br />
+        <hr />
         <Products />
       </div>
     </div>
