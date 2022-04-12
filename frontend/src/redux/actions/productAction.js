@@ -23,6 +23,23 @@ export const getProductsInBackend = () => (dispatch, getState) =>
   });
 
 
+export const addProductInBackend = (data) => (dispatch, getState) =>
+
+  new Promise((resolve, reject) => {
+    dispatch(addProduct(data));
+    axiosApp.post("/products/", {
+      "title": `${data?.title}`,
+      "content": `${data?.content}`
+    })
+      .then(({ data }) => {
+        console.log("response=>", data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
+
 export const setAllProducts = (data) => (dispatch) =>
   dispatch({
     type: SET_ALL_PRODUCTS,
