@@ -10,8 +10,9 @@ import {
 export const getProductsInBackend = () => (dispatch, getState) =>
   new Promise((resolve, reject) => {
     axiosApp
-      .get(`${process.env.APP_URL}/products/`)
+      .get(`/products/`)
       .then((productList) => {
+        console.log("productList=>", productList)
         dispatch(setAllProducts(productList?.data?.data));
         resolve("done");
       })
