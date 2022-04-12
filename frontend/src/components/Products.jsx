@@ -8,7 +8,7 @@ export default function Products() {
         <div>{
             products?.map((val) => {
                 console.log(val);
-                return (<p className="underline inline" onClick={() => {
+                return (<p onClick={() => {
                     console.log("on cllick", val.title)
                 }}>
                     {val.title}
