@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
+import Dialog from 'react-dialog'
 
 export default function Products() {
 
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
     const { products } = useSelector((state) => state.productReducer);
     return (
         <div>{
@@ -14,6 +16,23 @@ export default function Products() {
                     {val.title}
                 </p>);
             })
-        }</div>
+        }
+            {
+                isDialogOpen &&
+                <Dialog
+                    title="Dialog Title"
+                    modal={true}
+                    onClose={this.handleClose}
+                    buttons={
+                        [{
+                            text: "Close",
+                            onClick: () => this.handleClose()
+                        }]
+                    }>
+                    <h1>Dialog Content</h1>
+                    <p>More Content. Anything goes here</p>
+                </Dialog>
+            }
+        </div>
     )
 }
